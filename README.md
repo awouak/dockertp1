@@ -14,3 +14,12 @@ docker build -t flask_docker
 ```
 docker-compose up -d
 ```
+
+## Troubleshooting
+En cas de problème, lancer la commande suivante :
+
+##### ⚠️Attention cela supprime tous les conteneurs, docker et volumes ⚠️
+
+```
+docker stop $(docker ps -q) && docker rm $(docker ps -q) && docker system prune -a && for VOLUME in $(docker volume ls -q); do docker volume rm $VOLUME; done
+```
