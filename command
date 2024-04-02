@@ -128,19 +128,18 @@ Création image Python Flask
 
 Créer un fichier nommé Dockerfile dans le répertoire de l'application Flask (dans mon cas nommée code.py)
 
-#Cette ligne indique que l'image est basée sur l'image Python 3.9 avec la distribution Alpine Linux.
-FROM python:3.9-alpine
-#Définit le répertoire de travail par défaut dans le conteneur.
+# Utilisez une image Python de base
+FROM python:3.9
+# Définissez le répertoire de travail dans le conteneur
 WORKDIR /app
-#Copie le fichier requirements.txt dans le conteneur.
-COPY requirements.txt .
-#Installe les dépendances Python définies dans le fichier requirements.txt
-RUN pip install -r requirements.txt
-#Copie tous les fichiers et dossiers restants du projet dans le conteneur.
-COPY . .
-#Définit la commande par défaut à exécuter lors du démarrage du conteneur. Cette commande lance l'application Flask.
+# Copiez les fichiers nécessaires dans le conteneur
+COPY . /app
+# Installez les dépendances Python spécifiées dans requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+# Exposez le port sur lequel l'application Flask s'exécute
+EXPOSE 8000
+# Commande à exécuter lors du démarrage du conteneur
 CMD ["python", "code.py"]
-
 
 
 #Création de l'image Flask
