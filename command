@@ -93,7 +93,7 @@ gunicorn==20.1.0
 pip install -r requirements.txt
 
 
-#Création fichier code.py
+#Création fichier app.py
 
 from flask import Flask, render_template
 import os
@@ -139,7 +139,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Exposez le port sur lequel l'application Flask s'exécute
 EXPOSE 8000
 # Commande à exécuter lors du démarrage du conteneur
-CMD ["python", "code.py"]
+CMD ["python", "app.py"]
 
 
 #Création de l'image Flask
