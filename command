@@ -110,6 +110,17 @@ if __name__ == "__main__":
 
 #Creation du index.html dans le dossier templates (sous dossier ou il y a le programme python)
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
 
 
 
