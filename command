@@ -145,6 +145,8 @@ CMD ["python", "app.py"]
 #Création de l'image Flask
 sudo docker image build -t flask_docker .
 
+#Lancer le conteneur
+docker run -d -p 8000:8000 flask_docker
 
 Project structure:
 
