@@ -123,7 +123,11 @@ if __name__ == "__main__":
 </html>
 
 
-
+##
+##
+Création image Python Flask
+##
+##
 
 
 
