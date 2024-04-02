@@ -8,7 +8,7 @@ git clone https://github.com/awouak/dockertp1/
 cd dockertp1/
 ```
 ```
-docker build -t flask_docker
+docker build -t flask_docker .
 ```
 ## Créer l'image :
 ```
