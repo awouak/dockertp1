@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+
+  flask_docker:
+    image: flask_docker:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
