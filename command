@@ -89,21 +89,18 @@ Werkzeug==2.0.2
 gunicorn==20.1.0
 
 
-
 #Execution du fichier requirements
 pip install -r requirements.txt
 
 
-#Création fichier view.py
+#Création fichier code.py
+
 from flask import Flask, render_template
 import os
-
 app = Flask(__name__)
-
 @app.route('/')
 def home():
     return render_template('index.html')
-
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8000))
     app.run(debug=True, host='0.0.0.0', port=port)
@@ -129,28 +126,20 @@ Création image Python Flask
 ##
 ##
 
+Créer un fichier nommé Dockerfile dans le répertoire de l'application Flask (dans mon cas nommée code.py)
 
-
-#Création du fichier Dockerfile
-# start by pulling the python image
-FROM python:3.8-alpine
-
-# copy the requirements file into the image
-COPY ./requirements.txt /app/requirements.txt
-
-# switch working directory
+#Cette ligne indique que l'image est basée sur l'image Python 3.9 avec la distribution Alpine Linux.
+FROM python:3.9-alpine
+#Définit le répertoire de travail par défaut dans le conteneur.
 WORKDIR /app
-
-# install the dependencies and packages in the requirements file
+#Copie le fichier requirements.txt dans le conteneur.
+COPY requirements.txt .
+#Installe les dépendances Python définies dans le fichier requirements.txt
 RUN pip install -r requirements.txt
-
-# copy every content from the local file to the image
-COPY . /app
-
-# configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
-
-CMD ["app.py" ]
+#Copie tous les fichiers et dossiers restants du projet dans le conteneur.
+COPY . .
+#Définit la commande par défaut à exécuter lors du démarrage du conteneur. Cette commande lance l'application Flask.
+CMD ["python", "code.py"]
 
 
 
