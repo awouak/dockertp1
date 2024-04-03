@@ -26,6 +26,7 @@ Grafana: http://127.0.0.1:3000
 En cas de problème, lancer les commandes suivantes :
 
 ##### ⚠️Attention cela supprime tous les conteneurs, images et volumes présent sur le serveur ⚠️
+
 ```
 docker stop $(docker ps -q) && docker rm $(docker ps -q)  
 ```
