@@ -10,7 +10,7 @@ cd dockertp1/
 ```
 docker build -t flask_docker .
 ```
-## Créer l'image :
+## Déployer les 3 conteneurs :
 ```
 docker-compose up -d
 ```
