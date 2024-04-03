@@ -17,13 +17,15 @@ docker-compose up -d
 ## Se rendre sur les 3 serveurs :
 
 Flask: http://127.0.0.1:8000
+
 Prometheus: http://127.0.0.1:9090
+
 Grafana: http://127.0.0.1:3000
 
 ## Troubleshooting
 En cas de problème, lancer les commandes suivantes :
 
-##### ⚠️Attention cela supprime tous les conteneurs, images et volumes présent sur le serverur ⚠️
+##### ⚠️Attention cela supprime tous les conteneurs, images et volumes présent sur le serveur ⚠️
 ```
 docker stop $(docker ps -q) && docker rm $(docker ps -q)  
 ```
