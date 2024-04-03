@@ -8,12 +8,21 @@ services:
     networks:
       - monitoring
 
-  grafana:
+ grafana:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
     networks:
       - monitoring
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: 1234
+    depends_on:
+      - prometheus
+    volumes:
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml  
+      - ./grafana/dashboards/:/var/lib/grafana/dashboards
 
   flask_docker:
     image: flask_docker:latest
