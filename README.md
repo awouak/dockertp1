@@ -1,5 +1,10 @@
 # Répertoire du TP1 Docker
 
+## Elements requis :
+
+- Docker installé : https://docs.docker.com/engine/install/ubuntu/
+- Docker Compose : apt-get install docker-compose
+
 ## Créer l'image :
 ```
 git clone https://github.com/awouak/dockertp1/
